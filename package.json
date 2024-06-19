@@ -1,0 +1,14 @@
+{
+  "name": "pwned.page",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "source": "index.html",
+  "author": "TheHolyTachanka",
+  "license": "GPL",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
