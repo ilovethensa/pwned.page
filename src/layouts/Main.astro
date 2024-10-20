@@ -1,0 +1,55 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <BaseHead title={title} />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    [data-theme="light"] {
+        /* Default (light) theme */
+        --bg: #fff;
+        --accent-bg: #f5f7ff;
+        --text: #212121;
+        --text-light: #585858;
+        --border: #898ea4;
+        --accent: #0d47a1;
+        --code: #d81b60;
+        --preformatted: #444;
+        --marked: #ffdd33;
+        --disabled: #efefef;
+    }
+
+    /* Dark theme */
+    [data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #212121;
+        --accent-bg: #2b2b2b;
+        --text: #dcdcdc;
+        --text-light: #ababab;
+        --accent: #ffb300;
+        --code: #f06292;
+        --preformatted: #ccc;
+        --disabled: #111;
+    }
+    /* Add a bit of transparency so light media isn't so glaring in dark mode */
+    [data-theme="dark"] img,
+    [data-theme="dark"] video {
+        opacity: 0.8;
+    }
+</style>
