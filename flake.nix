@@ -31,10 +31,10 @@
         runHook postInstall
       '';
 
-      npmDepsHash = "";
+      npmDepsHash = "sha256-Qz7EAPFkU1412QtOvkQ5qsHocS5Da6Mihh7cZED0+84=";
     };
 
       defaultPackage = self.packages.${system}.website;
-      devShells.default = pkgs.mkShell {packages = [pkgs.hugo pkgs.yarn pkgs.nodejs];};
+      devShells.default = pkgs.mkShell {packages = [pkgs.yarn pkgs.nodejs];};
     });
 }
