@@ -11,21 +11,28 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      packages.website = pkgs.mkYarnPackage {
-        name = "website";
-        src = ./.;
-        packageJson = ./package.json;
-        yarnLock = ./yarn.lock;
-        dontFixup = true;
-        doDist = false;
-        doBuild = false;
-        buildPhase = ''
-          astro build
-        '';
-        installPhase = ''
-          mv public $out
-        '';
-      };
+      packages.website = pkgs.buildNpmPackage {
+      pname = "docs";
+      version = "0.1.0";
+
+      src = ./.;
+
+      buildInputs = [
+        pkgs.vips
+      ];
+
+      nativeBuildInputs = [
+        pkgs.pkg-config
+      ];
+
+      installPhase = ''
+        runHook preInstall
+        cp -pr --reflink=auto dist $out/
+        runHook postInstall
+      '';
+
+      npmDepsHash = "";
+    };
 
       defaultPackage = self.packages.${system}.website;
       devShells.default = pkgs.mkShell {packages = [pkgs.hugo pkgs.yarn pkgs.nodejs];};
