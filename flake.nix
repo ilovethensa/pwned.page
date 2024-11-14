@@ -12,7 +12,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       packages.website = pkgs.buildNpmPackage {
-      pname = "docs";
+      pname = "website";
       version = "0.1.0";
 
       src = ./.;
