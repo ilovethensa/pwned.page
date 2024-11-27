@@ -1,0 +1,43 @@
+---
+const { Title, Description, url } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer" class="service-button">
+    <h3>{Title}</h3>
+    <p>{Description}</p>
+</a>
+
+<style>
+    .service-button {
+        display: block;
+        text-decoration: none;
+        padding: 1rem;
+        background-color: var(--accent-bg);
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: var(--text);
+        transition:
+            background-color 0.3s ease,
+            box-shadow 0.3s ease,
+            color 0.3s ease;
+    }
+
+    .service-button:hover {
+        background-color: var(--accent-hover);
+        color: var(--accent-text);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-button h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--accent);
+    }
+
+    .service-button p {
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+        color: var(--text-light);
+    }
+</style>

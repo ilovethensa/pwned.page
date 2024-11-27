@@ -1,18 +1,69 @@
 ---
 import Main from "../layouts/Main.astro";
+import ServiceButton from "../components/ServiceButton.astro";
 ---
 
 <Main title="Services - pwned.page">
-    <p class="notice">
-        <strong>Beware!</strong><br />
-        This is hosted by a random guy(or NSA agent) on the internet, do not use
-        these if you need 100% guranteed security and/or reliability
-    </p>
-    <p>
-        <a href="https://lr.pwned.page">Libreddit</a> - A private front-end for Reddit
-    </p>
-    <p>
-        <a href="https://rimgo.pwned.page">Rimgo</a> - An alternative frontend for
-        Imgur
-    </p>
+    <section>
+        <p class="notice">
+            <strong>Important Notice:</strong><br />
+            These services are hosted by an independent individual (possibly just
+            a hobbyist or, who knows, an NSA agent). Use them at your own risk, especially
+            if you require guaranteed security or reliability.
+        </p>
+        <div class="service-buttons">
+            <ServiceButton
+                Title="Libreddit"
+                Description="A privacy-focused alternative frontend for Reddit."
+                url="https://lr.pwned.page"
+            />
+            <ServiceButton
+                Title="Rimgo"
+                Description="A lightweight and privacy-friendly alternative to Imgur."
+                url="https://rimgo.pwned.page"
+            />
+            <ServiceButton
+                Title="Whoogle"
+                Description="A self-hosted, ad-free, and private frontend for Google Search."
+                url="https://search.pwned.page"
+            />
+            <ServiceButton
+                Title="Binternet"
+                Description="A minimal and privacy-conscious web browsing experience."
+                url="https://binternet.pwned.page"
+            />
+            <ServiceButton
+                Title="Scribe"
+                Description="An intuitive and secure note-taking service."
+                url="https://scribe.pwned.page"
+            />
+            <ServiceButton
+                Title="Invidious"
+                Description="A privacy-respecting frontend for YouTube."
+                url="https://yt.pwned.page"
+            />
+            <ServiceButton
+                Title="Shoelace"
+                Description="A privacy-focused frontend for Threads.net."
+                url="https://shoelace.pwned.page"
+            />
+            <ServiceButton
+                Title="Snakenheimer"
+                Description="A Rust-based clone of the Coppenheimer project."
+                url="https://snakenheimer.pwned.page"
+            />
+        </div>
+    </section>
 </Main>
+
+<style>
+    .service-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+
+    .notice {
+        margin-bottom: 1rem;
+    }
+</style>
