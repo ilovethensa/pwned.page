@@ -13,7 +13,7 @@
     in {
       packages.website = pkgs.buildNpmPackage {
       pname = "website";
-      version = "0.1.2";
+      version = "0.1.3";
 
       src = ./.;
 
